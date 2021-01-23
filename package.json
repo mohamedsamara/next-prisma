@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +19,10 @@
   "bugs": {
     "url": "https://github.com/mohamedsamara/next-prisma/issues"
   },
-  "homepage": "https://github.com/mohamedsamara/next-prisma#readme"
+  "homepage": "https://github.com/mohamedsamara/next-prisma#readme",
+  "dependencies": {
+    "next": "^10.0.5",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
 }
