@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Box, Stack } from '@chakra-ui/react';
+import { signIn, signOut, useSession } from 'next-auth/client';
 
 import MenuItem from './MenuItem';
 
@@ -17,8 +18,8 @@ const MenuLinks = ({ isOpen }) => {
         direction={['column', 'column', 'row', 'row']}
         pt={[4, 4, 0, 0]}
       >
-        <MenuItem to='/login'>Log In</MenuItem>
-        <MenuItem to='/signup'>Sign Up</MenuItem>
+        <MenuItem to='/'>Home</MenuItem>
+        <MenuItem to='/api/auth/signin'>Log In</MenuItem>
         <MenuItem to='/blog'>Blog</MenuItem>
       </Stack>
     </Box>

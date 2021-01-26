@@ -1,8 +1,7 @@
 import React from 'react';
 
 import { AppProps } from 'next/app';
-import Header from 'next/head';
-
+import { Provider } from 'next-auth/client';
 import { ChakraProvider, CSSReset, Box } from '@chakra-ui/react';
 
 import theme from '../theme';
@@ -10,7 +9,7 @@ import NavBar from '../components/NavBar';
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
-    <>
+    <Provider session={pageProps.session}>
       <ChakraProvider theme={theme}>
         <NavBar />
         <CSSReset />
@@ -18,7 +17,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
           <Component {...pageProps} />
         </Box>
       </ChakraProvider>
-    </>
+    </Provider>
   );
 };
 
