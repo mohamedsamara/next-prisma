@@ -30,7 +30,8 @@
     "next": "^10.0.5",
     "next-auth": "^3.2.0-canary.35",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-query": "^3.6.0"
   },
   "devDependencies": {
     "@prisma/cli": "^2.15.0",

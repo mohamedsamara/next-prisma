@@ -2,7 +2,7 @@ import React from 'react';
 
 import Link from '../Link';
 
-const MenuItem = ({ children, to = '/', ...rest }) => {
+const MenuItem = ({ children, to = '/' }) => {
   return <Link href={to}>{children}</Link>;
 };
 

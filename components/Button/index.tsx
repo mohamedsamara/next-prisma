@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 
 import { Button as ChakraButton } from '@chakra-ui/react';
 
@@ -12,11 +12,12 @@ type ButtonProps = {
   size?: string;
   type: 'button' | 'submit' | 'reset';
   children: React.ReactNode;
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 };
 
-const Button = ({ children, size, type, ...props }: ButtonProps) => {
+const Button = ({ children, size, type, onClick, ...props }: ButtonProps) => {
   return (
-    <ChakraButton size={size} type={type} {...props}>
+    <ChakraButton size={size} type={type} onClick={onClick} {...props}>
       {children}
     </ChakraButton>
   );
