@@ -1,35 +1,21 @@
-import { signIn, signOut, useSession } from 'next-auth/client';
+import { useSession } from 'next-auth/client';
+import { Text, Avatar } from '@chakra-ui/react';
 
 import Head from '../components/Head';
 
 const Index = () => {
-  const [session, loading] = useSession();
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  console.log({ session });
-
-  if (session) {
-    return (
-      <div>
-        Hello, {session.user.email ?? session.user.name} <br />
-        <button onClick={() => signOut()}>Sign out</button>
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        You are not logged in! <br />
-        <button onClick={() => signIn()}>Sign in</button>
-      </div>
-    );
-  }
+  const [session] = useSession();
 
   return (
     <>
       <Head title='Home Page' description='Home page' />
-      <div>Home</div>
+      {session ? (
+        <Text fontSize='2xl'>
+          Hello, {session?.user.email ?? session?.user.name}
+        </Text>
+      ) : (
+        <Text fontSize='2xl'>Hello, You are not Logged In</Text>
+      )}
     </>
   );
 };

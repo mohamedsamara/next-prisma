@@ -12,7 +12,7 @@ const Head = props => (
       name='viewport'
       content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no'
     />
-    <link rel='icon' type='image/ico' href='favicon.ico' />
+    <link rel='icon' type='image/ico' href='/favicon.ico' />
   </NextHead>
 );
 

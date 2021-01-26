@@ -1,15 +1,16 @@
 import { useState } from 'react';
 
 import { useMutation } from 'react-query';
+import { useRouter } from 'next/router';
 import {
   FormControl,
   FormLabel,
   Input,
   Textarea,
   Stack,
-  Container,
   Text,
-  useToast
+  useToast,
+  Flex
 } from '@chakra-ui/react';
 
 import { server } from '../../constants';
@@ -17,9 +18,10 @@ import Head from '../../components/Head';
 import Button from '../../components/Button';
 
 const AddPost = () => {
+  const router = useRouter();
   const toast = useToast();
   const { mutate } = useMutation(() => addPost(), {
-    onError: () => {
+    onError: error => {
       toast({
         title: 'Something went wrong. Please Try Again!',
         status: 'error',
@@ -27,7 +29,23 @@ const AddPost = () => {
         isClosable: true
       });
     },
-    onSuccess: () => {
+    onSuccess: result => {
+      if (!result.success) {
+        let title = 'Something went wrong. Please Try Again!';
+        if (!result.logged) {
+          title = 'You are not logged in. Please log in and try again.';
+        }
+
+        toast({
+          title,
+          status: 'error',
+          duration: 2000,
+          isClosable: true
+        });
+
+        return;
+      }
+
       toast({
         title: 'Post was added successfully!',
         status: 'success',
@@ -71,30 +89,33 @@ const AddPost = () => {
     <>
       <Head title='Add Post' description='Add Post' />
       <form onSubmit={handleOnAddPost}>
-        <Container>
-          <Stack direction='column' spacing={6} align='center'>
-            <Text fontSize='2xl'>Add Post</Text>
-            <FormControl id='title' isRequired>
-              <FormLabel>Title</FormLabel>
-              <Input
-                placeholder='Title'
-                onChange={updatePost}
-                value={post.title}
-              />
-            </FormControl>
-            <FormControl id='content' isRequired>
-              <FormLabel>Content</FormLabel>
-              <Textarea
-                placeholder='Content'
-                onChange={updatePost}
-                value={post.content}
-              />
-            </FormControl>
+        <Stack direction='column' spacing={6} align='center'>
+          <Text fontSize='2xl'>Add Post</Text>
+          <FormControl id='title' isRequired>
+            <FormLabel>Title</FormLabel>
+            <Input
+              placeholder='Title'
+              onChange={updatePost}
+              value={post.title}
+            />
+          </FormControl>
+          <FormControl id='content' isRequired>
+            <FormLabel>Content</FormLabel>
+            <Textarea
+              placeholder='Content'
+              onChange={updatePost}
+              value={post.content}
+            />
+          </FormControl>
+          <Flex width='100%'>
             <Button type='submit' size='md'>
               Add Post
             </Button>
-          </Stack>
-        </Container>
+            <Button ml='2' size='md' onClick={() => router.push('/posts')}>
+              Cancel
+            </Button>
+          </Flex>
+        </Stack>
       </form>
     </>
   );

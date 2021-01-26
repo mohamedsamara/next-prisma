@@ -13,6 +13,14 @@ type ButtonProps = {
   type: 'button' | 'submit' | 'reset';
   children: React.ReactNode;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+  ml?: string;
+  variant?: string;
+  bg?: string;
+  p?: string;
+  _hover?: any;
+  _active?: any;
+  fontWeight?: string;
+  fontSize?: string;
 };
 
 const Button = ({ children, size, type, onClick, ...props }: ButtonProps) => {
@@ -25,7 +33,7 @@ const Button = ({ children, size, type, onClick, ...props }: ButtonProps) => {
 
 Button.defaultProps = {
   size: 'sm',
-  type: 'submit' || 'button' || 'reset'
+  type: 'button'
 };
 
 export default Button;

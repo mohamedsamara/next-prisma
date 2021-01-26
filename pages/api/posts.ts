@@ -16,9 +16,21 @@ export default async function getPosts(
       const posts = await prisma.post.findMany({
         include: { author: true }
       });
-      res.status(200).json(posts);
+      res.status(200).json({
+        posts,
+        success: true
+      });
       break;
+
     case 'POST':
+      if (!session) {
+        return res.status(401).json({
+          data: null,
+          success: false,
+          logged: false
+        });
+      }
+
       const { title, content } = req.body;
       const { user } = session;
 
@@ -30,9 +42,12 @@ export default async function getPosts(
         }
       });
 
-      res.status(200).json(post);
-
+      res.status(200).json({
+        post,
+        success: true
+      });
       break;
+
     default:
       res.status(405).end();
       break;

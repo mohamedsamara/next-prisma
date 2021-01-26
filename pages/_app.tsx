@@ -4,7 +4,7 @@ import { AppProps } from 'next/app';
 import { Provider } from 'next-auth/client';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Hydrate } from 'react-query/hydration';
-import { ChakraProvider, CSSReset, Box } from '@chakra-ui/react';
+import { ChakraProvider, CSSReset, Container } from '@chakra-ui/react';
 
 import theme from '../theme';
 import NavBar from '../components/NavBar';
@@ -19,9 +19,9 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
           <ChakraProvider theme={theme}>
             <NavBar />
             <CSSReset />
-            <Box p={4}>
+            <Container mb={12}>
               <Component {...pageProps} />
-            </Box>
+            </Container>
           </ChakraProvider>
         </Hydrate>
       </QueryClientProvider>
