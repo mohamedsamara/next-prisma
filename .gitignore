@@ -14,6 +14,7 @@ package-lock.json
 .vscode
 .env  
 coverage
+prisma/sqlite.db
 
 # debug
 npm-debug.log*
