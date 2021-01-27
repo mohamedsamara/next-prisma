@@ -1,7 +1,7 @@
 {
   "name": "next-prisma",
   "version": "1.0.0",
-  "description": "",
+  "description": "Next Prisma",
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
@@ -13,7 +13,13 @@
     "type": "git",
     "url": "git+https://github.com/mohamedsamara/next-prisma.git"
   },
-  "keywords": [],
+  "keywords": [
+    "next",
+    "prisma",
+    "next-auth",
+    "react-query",
+    "chakra-ui"
+  ],
   "author": "Mohamed Samara (https://github.com/mohamedsamara)",
   "license": "MIT",
   "bugs": {
