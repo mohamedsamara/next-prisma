@@ -35,7 +35,7 @@
 2.  Move to the directory: `cd <PROJECT_NAME>`.<br />
 3.  Run `npm install` in order to install dependencies.<br />
 
-## Start Development
+## Start development
 
 ```
 $ npm run dev
