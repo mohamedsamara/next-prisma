@@ -5,7 +5,7 @@ import { getSession } from 'next-auth/client';
 
 const prisma = new PrismaClient();
 
-export default async function getPosts(
+export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
@@ -49,7 +49,7 @@ export default async function getPosts(
       break;
 
     default:
-      res.status(405).end();
+      res.status(404).end();
       break;
   }
 }

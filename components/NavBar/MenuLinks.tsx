@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Box, Stack } from '@chakra-ui/react';
 import { signIn, signOut, useSession } from 'next-auth/client';
 

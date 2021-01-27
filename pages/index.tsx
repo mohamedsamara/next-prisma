@@ -1,5 +1,5 @@
 import { useSession } from 'next-auth/client';
-import { Text, Avatar } from '@chakra-ui/react';
+import { Text } from '@chakra-ui/react';
 
 import Head from '../components/Head';
 

@@ -1,4 +1,4 @@
-import React, { MouseEvent } from 'react';
+import { ReactNode, MouseEvent } from 'react';
 
 import { Button as ChakraButton } from '@chakra-ui/react';
 
@@ -11,7 +11,7 @@ enum ButtonTypes {
 type ButtonProps = {
   size?: string;
   type: 'button' | 'submit' | 'reset';
-  children: React.ReactNode;
+  children: ReactNode;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
   ml?: string;
   variant?: string;
