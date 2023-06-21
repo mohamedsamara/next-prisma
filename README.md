@@ -38,17 +38,17 @@
 ## Start development
 
 ```
-$ npm run dev
+npm run dev
 ```
 
 ## Simple build for production
 
 ```
-$ npm run build
+npm run build
 ```
 
 ## Run build for production
 
 ```
-$ npm start
+npm start
 ```
